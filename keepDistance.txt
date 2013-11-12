@@ -10,7 +10,7 @@ void keepDistance(){
 
 //Voor bot CD8775
 int dist_front;
-int dist = ?;
+int dist = 50;
 
 void keepDistance(){
   if(dist_front <= dist){
