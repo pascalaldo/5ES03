@@ -3,6 +3,12 @@ int dist_front;
 int dist = 60;
 
 void keepDistance(){
+  /* Select ADC_DISTANCE FRONT */
+  digitalWrite(ID_FRONTREAR, HIGH);
+  digitalWrite(ID_LEFTRIGHT, LOW);
+  delay(1);
+  dist_front = analogRead(ID_ADC_DISTANCE);
+
   if(dist_front <= dist){
     //pas snelheid aan
   }
@@ -13,6 +19,12 @@ int dist_front;
 int dist = 50;
 
 void keepDistance(){
+  /* Select ADC_DISTANCE FRONT */
+  digitalWrite(ID_FRONTREAR, HIGH);
+  digitalWrite(ID_LEFTRIGHT, LOW);
+  delay(1);
+  dist_front = analogRead(ID_ADC_DISTANCE);
+
   if(dist_front <= dist){
     //pas snelheid aan
   }
