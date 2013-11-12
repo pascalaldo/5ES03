@@ -46,9 +46,10 @@ void setup(){
 }
 
 void loop(){
-  int sound_left, sound_right;
+  int sound_left;
   int dist_front;
-  int sound = ?;
+  int clap_upper = 400;
+  int clap_lower = 150;
   int dist = 60;
   
   hearClap();
@@ -76,13 +77,7 @@ void hearClap(){
   delay(1);
   sound_left = analogRead(ID_ADC_SOUND);
 
-  /* Select ADC_SOUND RIGHT */
-  digitalWrite(ID_FRONTREAR, LOW);
-  digitalWrite(ID_LEFTRIGHT, HIGH);
-  delay(1);
-  sound_right = analogRead(ID_ADC_SOUND);
-
-  if(sound_left >= clap || sound_right >= clap){
+  if(sound_left <= clap_lower || sound_left >= clap_upper){
     move = true;
   }
 }

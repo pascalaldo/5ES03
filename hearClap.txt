@@ -1,28 +1,26 @@
 //Voor bot 2
 int sound_left, sound_right;
-int clap = ?;
+int clap_upper = 400;
+int clap_lower = 150;
+boolean move = false;
 
 void hearClap(){
   /* Select ADC_SOUND LEFT */
   digitalWrite(ID_FRONTREAR, LOW);
   digitalWrite(ID_LEFTRIGHT, LOW);
-  delay(1);
+  delay(50);
   sound_left = analogRead(ID_ADC_SOUND);
 
-  /* Select ADC_SOUND RIGHT */
-  digitalWrite(ID_FRONTREAR, LOW);
-  digitalWrite(ID_LEFTRIGHT, HIGH);
-  delay(1);
-  sound_right = analogRead(ID_ADC_SOUND);
-
-  if(sound_left >= clap || sound_right >= clap){
-    //start moving
+  if(sound_left <= clap_lower || sound_left >= clap_upper){
+    move = true;
   }
 }
 
 //Voor bot CD8775
 int sound_left, sound_right;
-int clap = ?;
+int clap_upper = 400;
+int clap_lower = 150;
+boolean move = false;
 
 void hearClap(){
   /* Select ADC_SOUND LEFT */
@@ -31,13 +29,7 @@ void hearClap(){
   delay(1);
   sound_left = analogRead(ID_ADC_SOUND);
 
-  /* Select ADC_SOUND RIGHT */
-  digitalWrite(ID_FRONTREAR, LOW);
-  digitalWrite(ID_LEFTRIGHT, HIGH);
-  delay(1);
-  sound_right = analogRead(ID_ADC_SOUND);
-
-  if(sound_left >= clap || sound_right >= clap){
-    //start moving
+  if(sound_left <= clap_lower || sound_left>= clap_upper){
+    move = true;
   }
 }
