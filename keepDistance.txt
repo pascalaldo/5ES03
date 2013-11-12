@@ -1,0 +1,19 @@
+//Voor bot 2
+int dist_front;
+int dist = 60;
+
+void keepDistance(){
+  if(dist_front <= dist){
+    //pas snelheid aan
+  }
+}
+
+//Voor bot CD8775
+int dist_front;
+int dist = ?;
+
+void keepDistance(){
+  if(dist_front <= dist){
+    //pas snelheid aan
+  }
+}
