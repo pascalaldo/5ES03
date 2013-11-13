@@ -146,7 +146,7 @@ void loop(){
  
   if(move){
     detectLine();
-   // keepDistance();
+    keepDistance();
     adjustMotor(min(motorLine_l,motorDist_l),min(motorLine_r,motorDist_r));
   }
   else
@@ -314,10 +314,10 @@ void detectLine()
               // Try to rotate to the right
               // Don't use full speed here, it might be more efficient to not rotate around the axis of the robot
               motorLine_l = 0.9*TURN_SPEED; 
-              motorLine_r = -TURN_SPEED;
+              motorLine_r = 0;//-TURN_SPEED;
             }else{
               // Try to rotate to the left
-              motorLine_l = -TURN_SPEED;
+              motorLine_l = 0;//-TURN_SPEED;
               // Don't use full speed here, it might be more efficient to not rotate around the axis of the robot
               motorLine_r = 0.9*TURN_SPEED;
             }
