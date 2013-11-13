@@ -38,6 +38,11 @@
 // Speed fraction to turn around with
 #define TURN_SPEED        0.8f
 
+#include "WProgram.h"
+void setup();
+void detectLine();
+void moveDroid();
+void loop();
 float motor_l; // Fraction of speed for the left motor [-1,1]
 float motor_r; // Fraction of speed for the right motor [-1,1]
 // Whether the bot went off the track at the left side,
@@ -211,5 +216,18 @@ void loop()
         moveDroid();
 
 	delay(DELAY_VAL);
+}
+
+
+int main(void)
+{
+	init();
+
+	setup();
+    
+	for (;;)
+		loop();
+        
+	return 0;
 }
 
