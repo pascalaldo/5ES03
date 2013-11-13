@@ -8,26 +8,6 @@
 #define DELAY_STOP      500
 #define DELAY_DRIVE     1000
 
-#include <math.h> //include math functions
-
-#define hasSerial     true
-
-static float lCurrentSpd = 0;
-static float rCurrentSpd = 0;
-
-void setup()
-{
-  Serial.begin(57600);
-        pinMode(ID_DIRECTION_L, OUTPUT);
-        digitalWrite(ID_DIRECTION_L, HIGH); 
-        pinMode(ID_DIRECTION_R, OUTPUT);
-        digitalWrite(ID_DIRECTION_R, HIGH);
-        
-        analogWrite(ID_SPEED_L, 0);
-        analogWrite(ID_SPEED_R, 0);
-
-}
-
 
 /*
 @pre: -0.6 <= lSpd <=0.6 due to engine not engaging otherwise
@@ -74,27 +54,12 @@ void adjustMotor(float lSpd, float rSpd)
   rCurrentSpd = rSpd;
 
   lSpd = abs((int) (lSpd*(hasSerial ? 255 : 200))); //get correction
-  rSpd = abs((int) (rSpd*(hasSerial ? 252 : 255))); //get correction
+  rSpd = abs((int) (rSpd*(hasSerial ? 251 : 255))); //get correction
 
   int s1 = (int) lSpd;
   analogWrite(ID_SPEED_L,s1);
 
   int s2 = (int) rSpd;
-  analogWrite(ID_SPEED_R,s2);
-
-
- 
+  analogWrite(ID_SPEED_R,s2); 
 }
 
-
-
-
-void loop()
-{
-
- 
-        adjustMotor(-(0.65),-(0.65));
-        delay(DELAY_DRIVE);      
-        adjustMotor(0.65,0.65);
-        delay(DELAY_DRIVE);      
-}
