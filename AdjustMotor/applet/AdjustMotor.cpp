@@ -12,6 +12,10 @@
 
 #define hasSerial     true
 
+#include "WProgram.h"
+void setup();
+void adjustMotor(float lSpd, float rSpd);
+void loop();
 static float lCurrentSpd = 0;
 static float rCurrentSpd = 0;
 
@@ -99,3 +103,16 @@ void loop()
         adjustMotor(0.65,0.65);
         delay(DELAY_DRIVE);      
 }
+
+int main(void)
+{
+	init();
+
+	setup();
+    
+	for (;;)
+		loop();
+        
+	return 0;
+}
+
