@@ -6,7 +6,7 @@ void hearClap(){
   delay(50);
   sound_left = analogRead(ID_ADC_SOUND);
 
-  if(sound_left <= clap_lower || sound_left >= clap_upper){
+  if(sound_left <= CLAP_LOWER || sound_left >= CLAP_UPPER){
     move = true;
   }
 }

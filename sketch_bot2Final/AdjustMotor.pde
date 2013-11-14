@@ -8,6 +8,14 @@
 #define DELAY_STOP      500
 #define DELAY_DRIVE     1000
 
+#ifdef BOT_SERIAL
+#define MOTOR_CORRECTION_L 255
+#define MOTOR_CORRECTION_R 251
+#else
+#define MOTOR_CORRECTION_L 250
+#define MOTOR_CORRECTION_R 255
+#endif
+
 
 /*
 @pre: -0.6 <= lSpd <=0.6 due to engine not engaging otherwise
@@ -17,6 +25,7 @@
 @post: -1 >= lCurrentSpd >= 1
 @post: -1 >= rCurrentSpd >= 1
 */
+/*
 void adjustMotor(float lSpd, float rSpd)
 {
   if (lCurrentSpd <=0 && lSpd >0) //left going backward and want forward
@@ -61,5 +70,22 @@ void adjustMotor(float lSpd, float rSpd)
 
   int s2 = (int) rSpd;
   analogWrite(ID_SPEED_R,s2); 
+}
+*/
+void adjustMotor(float motor_l, float motor_r){
+        if (motor_l > 0){
+          digitalWrite(ID_DIRECTION_L, HIGH);
+          analogWrite(ID_SPEED_L, ((int)(MOTOR_CORRECTION_L*motor_l)));
+        }else{
+          digitalWrite(ID_DIRECTION_L, LOW);
+          analogWrite(ID_SPEED_L, ((int)(MOTOR_CORRECTION_L*-motor_l)));
+        }
+        if (motor_r > 0){
+          digitalWrite(ID_DIRECTION_R, HIGH);
+          analogWrite(ID_SPEED_R, ((int)(MOTOR_CORRECTION_R*motor_r)));
+        }else{
+          digitalWrite(ID_DIRECTION_R, LOW);
+          analogWrite(ID_SPEED_R, ((int)(MOTOR_CORRECTION_R*-motor_r)));
+        }
 }
 
