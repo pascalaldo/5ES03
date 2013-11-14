@@ -143,6 +143,7 @@ void loop(){
     detectLine();
     keepDistance();
     adjustMotor(min(motorLine_l,motorDist_l),min(motorLine_r,motorDist_r));
+    measureDistance();
   }
   else
   {

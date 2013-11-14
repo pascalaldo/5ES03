@@ -62,6 +62,7 @@ void setup();
 void loop();
 void detectAlone();
 void adjustMotor(float lSpd, float rSpd);
+void measureDistance();
 void keepDistance();
 void detectLine();
 float motorLine_l; // Fraction of speed for the left motor with line [-1,1]
@@ -150,6 +151,7 @@ void loop(){
     detectLine();
     keepDistance();
     adjustMotor(min(motorLine_l,motorDist_l),min(motorLine_r,motorDist_r));
+    measureDistance();
   }
   else
   {
@@ -232,6 +234,17 @@ void adjustMotor(float lSpd, float rSpd)
   analogWrite(ID_SPEED_R,s2); 
 }
 
+void measureDistance() 
+{
+  float loopTime, lastLoopTime;
+  float distance; 
+  
+  Serial.begin(57600);
+  loopTime = millis()/1000;  // get the number of seconds since the program started
+  distance = distance + 0.5*(abs(lCurrentSpd+rCurrentSpd))*((float)loopTime-(float)lastLoopTime);
+  lastLoopTime = loopTime;
+  Serial.print(distance); Serial.print(" ");
+}
 
 /*void hearClap(){
   /* Select ADC_SOUND LEFT */
