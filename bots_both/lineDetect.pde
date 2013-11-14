@@ -32,7 +32,7 @@ void detectLine()
         if (line_l_cor < LINE_THRESHOLD && line_r_cor < LINE_THRESHOLD){
           // If both values are below the threshold, the bot is off track.
           // Try desperately rotating to get back on the track.
-          Serial.println("OFF TRACK");
+          //Serial.println("OFF TRACK");
           // Light up blue LED
           analogWrite(ID_LED_BLUE, 255);
           // Dim the green LED
@@ -78,22 +78,23 @@ void detectLine()
             if (ratio < 0){
               // The bot is seeing the line at the right side and is therefore heading too far to the left.
               // So the bot should turn right.
-              Serial.println("GOTO RIGHT");
+              //Serial.println("GOTO RIGHT");
               out_at_left = true; // Keep track of where the line was last seen.
               // Decrease the speed of the right motor to go right.
-              motorLine_l = motorLine_l-LINE_FACTOR*ratio;
+              motorLine_r = motorLine_r+LINE_FACTOR*ratio;
             }else{
               // The bot is seeing the line at the left side and is therefore heading too far to the right.
               // So the bot should turn left.
               Serial.println("GOTO LEFT");
               out_at_left = false; // Keep track of where the line was last seen.
               // Decrease the speed of the left motor to go left.
-              motorLine_r = motorLine_r+LINE_FACTOR*ratio;
+              motorLine_l = motorLine_l-LINE_FACTOR*ratio;
             }
             // Decrease the speed a little so the bot doesn't miss the corner.
             motorLine_l = motorLine_l*TURN_SPEED;
             motorLine_r = motorLine_r*TURN_SPEED;
           }
+          //Serial.print("Correction: "); Serial.print(motorLine_l); Serial.print("; "); Serial.println(motorLine_r);
         }else{
           // The bot is heading in the correct direction! No adjustments have to be made.
           off_track = 0;

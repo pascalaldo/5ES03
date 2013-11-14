@@ -1,3 +1,4 @@
+#define BOT_SERIAL 1
 /* Bot 2
  * This file incorporates all the bits of code into one functional program.
  * Currently implemented:
@@ -47,31 +48,33 @@
 #define CORRECTION_RIGHT  1.0f
 
 // Threshold of what is considered line (white)
-#define LINE_THRESHOLD  280
+#define LINE_THRESHOLD  300
 // How severe the reaction to seeing the edge of the line is
-#define LINE_FACTOR       5.0f
+#define LINE_FACTOR       2.0f
 // How long the bot should 'recover' from being off track. This is a delay that
 // makes sure the bot does not to quickly assume it is back on track.
-#define RECOVERY_STEPS  100
+#define RECOVERY_STEPS   50
 
 #define MOTOR_SPEED     255.0f
 // Speed fraction to turn around with
-#define TURN_SPEED        0.9f
+#define TURN_SPEED        1.0f
 
 // Distance at which keepdistance should trigger.
 #ifdef BOT_SERIAL
-#define DIST_THRESHOLD  50
-#else
 #define DIST_THRESHOLD  950
+#define DIST_THRESHOLD_CRITICAL  200
+#else
+#define DIST_THRESHOLD   50
+#define DIST_THRESHOLD_CRITICAL  10
 #endif
 
 // Clap thresholds
 #ifdef BOT_SERIAL
 #define CLAP_UPPER      400
-#define CLAP_LOWER      150
+#define CLAP_LOWER      100
 #else
-#define CLAP_UPPER      700
-#define CLAP_LOWER       20
+#define CLAP_UPPER      400
+#define CLAP_LOWER      150
 #endif
 
 float motorLine_l; // Fraction of speed for the left motor with line [-1,1]
@@ -145,7 +148,7 @@ void loop(){
     }else{
       detectLine();
 #ifdef BOT_SERIAL
-      if (dist_freq_count > 5){
+      if (dist_freq_count >= 0){
         keepDistance();
         dist_freq_count = 0;
       }
