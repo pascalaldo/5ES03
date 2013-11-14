@@ -50,9 +50,7 @@ void detectLine()
             // Don't use full speed here, it might be more efficient to not rotate around the axis of the robot
             motorLine_r = 0.9*TURN_SPEED;
           }
-          off_track_count++;
         }else if (line_l_cor < LINE_THRESHOLD || line_r_cor < LINE_THRESHOLD){
-          off_track_count = 0;
           // The line is still visible at one side.
           if (off_track > 0){
             // The robot was recently off track, and should keep turning until it is better on the track.
@@ -97,12 +95,9 @@ void detectLine()
         }else{
           // The bot is heading in the correct direction! No adjustments have to be made.
           off_track = 0;
-          off_track_count = 0;
           // Just light up the green light to show everything is okay :)
           analogWrite(ID_LED_BLUE, 0);
           analogWrite(ID_LED_GREEN, 255);
         }
-        motorLine_l = max(-1,motorLine_l);
-        motorLine_r = max(-1,motorLine_r);
 }
 

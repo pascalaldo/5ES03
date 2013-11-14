@@ -8,7 +8,6 @@
  * - Following the line
  * - Setting speed
  */
-#include <math.h> //include math functions
 
 #define	ID_ADC_SOUND     0
 #define ID_ADC_LINE      2
@@ -47,37 +46,21 @@
 #define CORRECTION_RIGHT  1.0f
 
 // Threshold of what is considered line (white)
-#define LINE_THRESHOLD  280
+#define LINE_THRESHOLD  300
 // How severe the reaction to seeing the edge of the line is
 #define LINE_FACTOR       5.0f
 // How long the bot should 'recover' from being off track. This is a delay that
 // makes sure the bot does not to quickly assume it is back on track.
-#define RECOVERY_STEPS  100
+#define RECOVERY_STEPS  1000
 
 #define MOTOR_SPEED     255.0f
 // Speed fraction to turn around with
-#define TURN_SPEED        0.9f
-
-// Distance at which keepdistance should trigger.
-#ifdef BOT_SERIAL
-#define DIST_THRESHOLD  50
-#else
-#define DIST_THRESHOLD  950
-#endif
-
-// Clap thresholds
-#ifdef BOT_SERIAL
-#define CLAP_UPPER      400
-#define CLAP_LOWER      150
-#else
-#define CLAP_UPPER      700
-#define CLAP_LOWER       20
-#endif
+#define TURN_SPEED        0.8f
 
 #include "WProgram.h"
 void setup();
 void loop();
-void adjustMotor(float motor_l, float motor_r);
+void adjustMotor(float lSpd, float rSpd);
 void hearClap();
 void keepDistance();
 void detectLine();
@@ -91,22 +74,38 @@ float motorDist_r; // Fraction of speed for the right motor with dist [-1,1]
 // false when the bot went off the track at the right side
 boolean out_at_left; 
 int off_track;
-// Count how long the bot has been off track;
-int off_track_count = 0;
 // How long the bot should still recover from being off track.
 // It is set to >0 when off track and decreases when the line is found again.
 // This makes sure the bot does not immediately stop rotating when the line is
 // just barely visible.
 
+
+#include <math.h> //include math functions
+
+#define hasSerial     false
+
 //Voor bot 2
 int sound_left, sound_right;
+int clap_upper = 700;
+int clap_lower = 20;
 boolean move = false;
 int dist_front;
+int dist = 950; //distance at which keepdistance should trigger.
+
+
+//Voor bot CD8775
+/*
+int sound_left, sound_right;
+int clap_upper = 400;
+int clap_lower = 150;
+boolean move = false;
+int dist_front;
+int dist = 50;
+*/
 
 static float lCurrentSpd = 0; //current left engine speed
 static float rCurrentSpd = 0; //current right engine speed
 
-static int dist_freq_count = 0;
 
 void setup(){
   move = false;
@@ -143,26 +142,12 @@ void setup(){
 }
 
 void loop(){
+
+ 
   if(move){
-    if(off_track_count > 700){
-      analogWrite(ID_LED_BLUE, 0);
-      analogWrite(ID_LED_GREEN, 0);
-      analogWrite(ID_LED_RED, 255);
-      adjustMotor(0,0);
-      for(;;);
-    }else{
-      detectLine();
-#ifdef BOT_SERIAL
-      if (dist_freq_count > 5){
-        keepDistance();
-        dist_freq_count = 0;
-      }
-      dist_freq_count++;
-#endif
-      adjustMotor(motorLine_l*motorDist_l,motorLine_r*motorDist_r);
-      //Serial.print("Motor line speed: ("); Serial.print(motorLine_l); Serial.print(", "); Serial.print(motorLine_r); Serial.println(")");
-      //Serial.print("Motor dist speed: ("); Serial.print(motorDist_l); Serial.print(", "); Serial.print(motorDist_r); Serial.println(")");
-    }
+    detectLine();
+    keepDistance();
+    adjustMotor(min(motorLine_l,motorDist_l),min(motorLine_r,motorDist_r));
   }
   else
   {
@@ -180,14 +165,6 @@ void loop(){
 #define DELAY_STOP      500
 #define DELAY_DRIVE     1000
 
-#ifdef BOT_SERIAL
-#define MOTOR_CORRECTION_L 255
-#define MOTOR_CORRECTION_R 251
-#else
-#define MOTOR_CORRECTION_L 251
-#define MOTOR_CORRECTION_R 255
-#endif
-
 
 /*
 @pre: -0.6 <= lSpd <=0.6 due to engine not engaging otherwise
@@ -197,7 +174,6 @@ void loop(){
 @post: -1 >= lCurrentSpd >= 1
 @post: -1 >= rCurrentSpd >= 1
 */
-/*
 void adjustMotor(float lSpd, float rSpd)
 {
   if (lCurrentSpd <=0 && lSpd >0) //left going backward and want forward
@@ -243,23 +219,6 @@ void adjustMotor(float lSpd, float rSpd)
   int s2 = (int) rSpd;
   analogWrite(ID_SPEED_R,s2); 
 }
-*/
-void adjustMotor(float motor_l, float motor_r){
-        if (motor_l > 0){
-          digitalWrite(ID_DIRECTION_L, HIGH);
-          analogWrite(ID_SPEED_L, ((int)(MOTOR_CORRECTION_L*motor_l)));
-        }else{
-          digitalWrite(ID_DIRECTION_L, LOW);
-          analogWrite(ID_SPEED_L, ((int)(MOTOR_CORRECTION_L*-motor_l)));
-        }
-        if (motor_r > 0){
-          digitalWrite(ID_DIRECTION_R, HIGH);
-          analogWrite(ID_SPEED_R, ((int)(MOTOR_CORRECTION_R*motor_r)));
-        }else{
-          digitalWrite(ID_DIRECTION_R, LOW);
-          analogWrite(ID_SPEED_R, ((int)(MOTOR_CORRECTION_R*-motor_r)));
-        }
-}
 
 
 void hearClap(){
@@ -269,24 +228,24 @@ void hearClap(){
   delay(50);
   sound_left = analogRead(ID_ADC_SOUND);
 
-  if(sound_left <= CLAP_LOWER || sound_left >= CLAP_UPPER){
+  if(sound_left <= clap_lower || sound_left >= clap_upper){
     move = true;
   }
 }
 
 
-#ifdef BOT_SERIAL
+
 void keepDistance(){
   /* Select ADC_DISTANCE FRONT */
   digitalWrite(ID_FRONTREAR, HIGH);
   digitalWrite(ID_LEFTRIGHT, LOW);
   delay(1);
   dist_front = analogRead(ID_ADC_DISTANCE);
-  if(dist_front <= DIST_THRESHOLD){ //we see something
+  if(dist_front <= dist){ //we see something
     motorDist_l *= 0.95; //slow down when we see something
     motorDist_r *= 0.95;
-    //analogWrite(ID_LED_GREEN, 125);
-    //analogWrite(ID_LED_BLUE, 125);
+              analogWrite(ID_LED_GREEN, 125);
+                        analogWrite(ID_LED_BLUE, 125);
   }
   else //not seeing anything
   {
@@ -295,7 +254,6 @@ void keepDistance(){
   }
   
 }
-#endif
 void detectLine()
 {
         int line_left, line_right;
@@ -348,9 +306,7 @@ void detectLine()
             // Don't use full speed here, it might be more efficient to not rotate around the axis of the robot
             motorLine_r = 0.9*TURN_SPEED;
           }
-          off_track_count++;
         }else if (line_l_cor < LINE_THRESHOLD || line_r_cor < LINE_THRESHOLD){
-          off_track_count = 0;
           // The line is still visible at one side.
           if (off_track > 0){
             // The robot was recently off track, and should keep turning until it is better on the track.
@@ -395,13 +351,10 @@ void detectLine()
         }else{
           // The bot is heading in the correct direction! No adjustments have to be made.
           off_track = 0;
-          off_track_count = 0;
           // Just light up the green light to show everything is okay :)
           analogWrite(ID_LED_BLUE, 0);
           analogWrite(ID_LED_GREEN, 255);
         }
-        motorLine_l = max(-1,motorLine_l);
-        motorLine_r = max(-1,motorLine_r);
 }
 
 

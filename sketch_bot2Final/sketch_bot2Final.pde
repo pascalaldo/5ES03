@@ -8,7 +8,6 @@
  * - Following the line
  * - Setting speed
  */
-#include <math.h> //include math functions
 
 #define	ID_ADC_SOUND     0
 #define ID_ADC_LINE      2
@@ -47,32 +46,16 @@
 #define CORRECTION_RIGHT  1.0f
 
 // Threshold of what is considered line (white)
-#define LINE_THRESHOLD  280
+#define LINE_THRESHOLD  300
 // How severe the reaction to seeing the edge of the line is
 #define LINE_FACTOR       5.0f
 // How long the bot should 'recover' from being off track. This is a delay that
 // makes sure the bot does not to quickly assume it is back on track.
-#define RECOVERY_STEPS  100
+#define RECOVERY_STEPS  1000
 
 #define MOTOR_SPEED     255.0f
 // Speed fraction to turn around with
-#define TURN_SPEED        0.9f
-
-// Distance at which keepdistance should trigger.
-#ifdef BOT_SERIAL
-#define DIST_THRESHOLD  50
-#else
-#define DIST_THRESHOLD  950
-#endif
-
-// Clap thresholds
-#ifdef BOT_SERIAL
-#define CLAP_UPPER      400
-#define CLAP_LOWER      150
-#else
-#define CLAP_UPPER      700
-#define CLAP_LOWER       20
-#endif
+#define TURN_SPEED        0.8f
 
 float motorLine_l; // Fraction of speed for the left motor with line [-1,1]
 float motorLine_r; // Fraction of speed for the right motor with line [-1,1]
@@ -84,21 +67,38 @@ float motorDist_r; // Fraction of speed for the right motor with dist [-1,1]
 // false when the bot went off the track at the right side
 boolean out_at_left; 
 int off_track;
-// Count how long the bot has been off track;
-int off_track_count = 0;
 // How long the bot should still recover from being off track.
 // It is set to >0 when off track and decreases when the line is found again.
 // This makes sure the bot does not immediately stop rotating when the line is
 // just barely visible.
 
+
+#include <math.h> //include math functions
+
+#define hasSerial     false
+
+//Voor bot 2
 int sound_left, sound_right;
+int clap_upper = 700;
+int clap_lower = 20;
 boolean move = false;
 int dist_front;
+int dist = 950; //distance at which keepdistance should trigger.
+
+
+//Voor bot CD8775
+/*
+int sound_left, sound_right;
+int clap_upper = 400;
+int clap_lower = 150;
+boolean move = false;
+int dist_front;
+int dist = 50;
+*/
 
 static float lCurrentSpd = 0; //current left engine speed
 static float rCurrentSpd = 0; //current right engine speed
 
-static int dist_freq_count = 0;
 
 void setup(){
   move = false;
@@ -135,26 +135,12 @@ void setup(){
 }
 
 void loop(){
+
+ 
   if(move){
-    if(off_track_count > 700){
-      analogWrite(ID_LED_BLUE, 0);
-      analogWrite(ID_LED_GREEN, 0);
-      analogWrite(ID_LED_RED, 255);
-      adjustMotor(0,0);
-      for(;;);
-    }else{
-      detectLine();
-#ifdef BOT_SERIAL
-      if (dist_freq_count > 5){
-        keepDistance();
-        dist_freq_count = 0;
-      }
-      dist_freq_count++;
-#endif
-      adjustMotor(motorLine_l*motorDist_l,motorLine_r*motorDist_r);
-      //Serial.print("Motor line speed: ("); Serial.print(motorLine_l); Serial.print(", "); Serial.print(motorLine_r); Serial.println(")");
-      //Serial.print("Motor dist speed: ("); Serial.print(motorDist_l); Serial.print(", "); Serial.print(motorDist_r); Serial.println(")");
-    }
+    detectLine();
+    keepDistance();
+    adjustMotor(min(motorLine_l,motorDist_l),min(motorLine_r,motorDist_r));
   }
   else
   {
