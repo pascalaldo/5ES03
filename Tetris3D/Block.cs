@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace TestTetris
+namespace HighRoller
 {
     public class Block
     {
-        protected Grid grid;        //Parent grid,which has to contain: public int width, height; public Block[] blocks;
+        protected GameGrid grid;        //Parent grid,which has to contain: public int width, height; public Block[] blocks;
         protected Vector3[] cubes;  //Defines cube positions.
         protected Vector3 origin;   //relative to this origin.
 
@@ -24,7 +24,7 @@ namespace TestTetris
             return this.checkCollision(this.cubes.Select(cube => cube + this.origin).ToArray()); //Returns if this object can stay in place using the move function.
         } //Creates a block. Use extensions for specific block shapes.
      
-        public Block(Grid grid)
+        public Block(GameGrid grid)
         {
             this.grid = grid;
         }
@@ -74,13 +74,13 @@ namespace TestTetris
         {
             foreach (Vector3 currentCube in cubeSet)
             {
-                if (currentCube.X < 0 || currentCube.X > grid.width || //X walls
-                    currentCube.Z < 0 || currentCube.Z > grid.width || //Z walls
-                    currentCube.Y < 0 || currentCube.Y > grid.height) //Necessary for rotation, even though blocks do not move up directly.
+                if (currentCube.X < 0 || currentCube.X > grid.getWidth() || //X walls
+                    currentCube.Z < 0 || currentCube.Z > grid.getWidth() || //Z walls
+                    currentCube.Y < 0 || currentCube.Y > grid.getHeight()) //Necessary for rotation, even though blocks do not move up directly.
                 {
                     return true; //Wall collision detected
                 }
-                foreach (Block neighbour in grid.blocks)
+                foreach (Block neighbour in grid.getBlocks())
                 {
                     if (neighbour.collidesWith(currentCube))
                     {
@@ -147,7 +147,7 @@ namespace TestTetris
          */
         public int[] countCubesOnRows()
         {
-            int[] rowCount = new int[grid.height];
+            int[] rowCount = new int[grid.getHeight()];
             foreach (Vector3 cube in cubes)
             {
                 rowCount[(int)cube.Y] += 1;
@@ -159,7 +159,7 @@ namespace TestTetris
 
     public class StraightBlock : Block
     {
-        public StraightBlock(Grid grid) : base(grid)
+        public StraightBlock(GameGrid grid) : base(grid)
         {
             //Nothing to do here lol.
         }
@@ -173,7 +173,7 @@ namespace TestTetris
                 new Vector3(0,0,0),
                 new Vector3(1,0,0),
                 new Vector3(2,0,0)};
-            this.origin = new Vector3((int)(grid.width / 2), grid.height, (int)(grid.width / 2));
+            this.origin = new Vector3((int)(grid.getWidth() / 2), grid.getWidth()/2, (int)(grid.getHeight())); //Z is the vertical axis.
             return base.create();
         }
     }
