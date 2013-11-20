@@ -1,0 +1,7 @@
+Content\Models\box.xnb
+Content\Models\plane.xnb
+Content\Models\crate.xnb
+Content\Models\tile.xnb
+Content\Models\Textured_Lit.xnb
+Content\Models\ShaderEffect.xnb
+Content\Models\admoveo.xnb
