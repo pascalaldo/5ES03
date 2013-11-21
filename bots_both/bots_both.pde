@@ -1,13 +1,6 @@
 #define BOT_SERIAL 1
-/* Bot 2
- * This file incorporates all the bits of code into one functional program.
- * Currently implemented:
- * - Hearing the clap (still needs treshold values)
- * - Avoiding collision
- *
- * To implement:
- * - Following the line
- * - Setting speed
+/* 
+ * 
  */
 #include <math.h> //include math functions
 
@@ -42,6 +35,15 @@
 
 #define DELAY_VAL	  0
 #define DELAY_READ_LINE   1
+
+// Motor corrections
+#ifdef BOT_SERIAL
+#define MOTOR_CORRECTION_L 255
+#define MOTOR_CORRECTION_R 251
+#else
+#define MOTOR_CORRECTION_L 250
+#define MOTOR_CORRECTION_R 255
+#endif
 
 // Should be made dependent on the bot nr.
 #define CORRECTION_LEFT   1.0f
@@ -101,6 +103,10 @@ int dist_front;
 static float lCurrentSpd = 0; //current left engine speed
 static float rCurrentSpd = 0; //current right engine speed
 
+// Distance measurement
+float measuredDistance = 0.0f;
+unsigned long lastSpeedChange = 0;
+
 static int dist_freq_count = 0;
 
 void setup(){
@@ -144,15 +150,12 @@ void loop(){
       analogWrite(ID_LED_GREEN, 0);
       analogWrite(ID_LED_RED, 255);
       adjustMotor(0,0);
+      Serial.print("TOTAL DISTANCE: "); Serial.println(getTotalDistance());
       for(;;);
     }else{
       detectLine();
 #ifdef BOT_SERIAL
-      if (dist_freq_count >= 0){
-        keepDistance();
-        dist_freq_count = 0;
-      }
-      dist_freq_count++;
+      keepDistance();
 #endif
       adjustMotor(motorLine_l*motorDist_l,motorLine_r*motorDist_r);
       //Serial.print("Motor line speed: ("); Serial.print(motorLine_l); Serial.print(", "); Serial.print(motorLine_r); Serial.println(")");

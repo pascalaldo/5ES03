@@ -8,6 +8,7 @@ void hearClap(){
 
   if(sound_left <= CLAP_LOWER || sound_left >= CLAP_UPPER){
     move = true;
+    lastSpeedChange = millis();
   }
 }
 

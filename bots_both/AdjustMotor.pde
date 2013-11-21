@@ -1,21 +1,5 @@
-#define ID_ENCODER_R      2
-#define ID_ENCODER_L      4
-#define ID_SPEED_R        5
-#define ID_SPEED_L        6
-#define ID_DIRECTION_R    7
-#define ID_DIRECTION_L    8
-
 #define DELAY_STOP      500
 #define DELAY_DRIVE     1000
-
-#ifdef BOT_SERIAL
-#define MOTOR_CORRECTION_L 255
-#define MOTOR_CORRECTION_R 251
-#else
-#define MOTOR_CORRECTION_L 250
-#define MOTOR_CORRECTION_R 255
-#endif
-
 
 /*
 @pre: -0.6 <= lSpd <=0.6 due to engine not engaging otherwise
@@ -73,19 +57,20 @@ void adjustMotor(float lSpd, float rSpd)
 }
 */
 void adjustMotor(float motor_l, float motor_r){
-        if (motor_l > 0){
-          digitalWrite(ID_DIRECTION_L, HIGH);
-          analogWrite(ID_SPEED_L, ((int)(MOTOR_CORRECTION_L*motor_l)));
-        }else{
-          digitalWrite(ID_DIRECTION_L, LOW);
-          analogWrite(ID_SPEED_L, ((int)(MOTOR_CORRECTION_L*-motor_l)));
-        }
-        if (motor_r > 0){
-          digitalWrite(ID_DIRECTION_R, HIGH);
-          analogWrite(ID_SPEED_R, ((int)(MOTOR_CORRECTION_R*motor_r)));
-        }else{
-          digitalWrite(ID_DIRECTION_R, LOW);
-          analogWrite(ID_SPEED_R, ((int)(MOTOR_CORRECTION_R*-motor_r)));
-        }
+  if (motor_l > 0){
+    digitalWrite(ID_DIRECTION_L, HIGH);
+    analogWrite(ID_SPEED_L, ((int)(MOTOR_CORRECTION_L*motor_l)));
+  }else{
+    digitalWrite(ID_DIRECTION_L, LOW);
+    analogWrite(ID_SPEED_L, ((int)(MOTOR_CORRECTION_L*-motor_l)));
+  }
+  if (motor_r > 0){
+    digitalWrite(ID_DIRECTION_R, HIGH);
+    analogWrite(ID_SPEED_R, ((int)(MOTOR_CORRECTION_R*motor_r)));
+  }else{
+    digitalWrite(ID_DIRECTION_R, LOW);
+    analogWrite(ID_SPEED_R, ((int)(MOTOR_CORRECTION_R*-motor_r)));
+  }
+  speedChanged(motor_l, motor_r);
 }
 
