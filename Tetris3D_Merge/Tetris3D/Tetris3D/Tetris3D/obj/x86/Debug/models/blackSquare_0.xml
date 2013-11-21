@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics" xmlns:Framework="Microsoft.Xna.Framework">
+  <Asset Type="Graphics:NodeContent">
+    <Identity>
+      <SourceFilename>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3DContent\models\blackSquare.x</SourceFilename>
+      <SourceTool>XImporter</SourceTool>
+    </Identity>
+    <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
+    <Children>
+      <Child Type="Graphics:MeshContent">
+        <Name>mesh_0</Name>
+        <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
+        <Positions>-49.5 0 -49.5 0 0 -0.3125 -49.5 0 0 0 0 -49.5</Positions>
+        <Geometry>
+          <Batch>
+            <Material>#Resource1</Material>
+            <Indices>0 1 2 3 4 5 6 2 1 4 3 7</Indices>
+            <Vertices>
+              <PositionIndices>2 1 0 0 1 2 3 3</PositionIndices>
+              <Channels>
+                <VertexChannel Name="Normal0" ElementType="Framework:Vector3">-0 -1 0 -0 -1 0 -0 -1 0 0 1 0 0 1 0 0 1 0 -0 -1 0 0 1 0</VertexChannel>
+                <VertexChannel Name="TextureCoordinate0" ElementType="Framework:Vector2">1 -49.5 0.6875 -0 -48.5 -49.5 -48.5 -49.5 0.6875 -0 1 -49.5 -48.5 -0 -48.5 -0</VertexChannel>
+              </Channels>
+            </Vertices>
+          </Batch>
+        </Geometry>
+      </Child>
+    </Children>
+  </Asset>
+  <Resources>
+    <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
+      <Identity>
+        <SourceFilename>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3DContent\models\blackSquare.x</SourceFilename>
+        <SourceTool>XImporter</SourceTool>
+      </Identity>
+      <OpaqueData>
+        <Data Key="DiffuseColor" Type="Framework:Vector3">0 0 0</Data>
+        <Data Key="SpecularColor" Type="Framework:Vector3">0 0 0</Data>
+        <Data Key="EmissiveColor" Type="Framework:Vector3">0 0 0</Data>
+        <Data Key="Alpha" Type="float">1</Data>
+        <Data Key="SpecularPower" Type="float">3.2</Data>
+      </OpaqueData>
+    </Resource>
+  </Resources>
+</XnaContent>

@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tetris3D", "Tetris3D\Tetris3D\Tetris3D.csproj", "{669F515D-0B55-49E6-9925-8444B2775825}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Tetris3DContent", "Tetris3D\Tetris3DContent\Tetris3DContent.contentproj", "{6E40361D-9E36-4071-9FDD-8192D2FE3C46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{669F515D-0B55-49E6-9925-8444B2775825}.Debug|x86.ActiveCfg = Debug|x86
+		{669F515D-0B55-49E6-9925-8444B2775825}.Debug|x86.Build.0 = Debug|x86
+		{669F515D-0B55-49E6-9925-8444B2775825}.Release|x86.ActiveCfg = Release|x86
+		{669F515D-0B55-49E6-9925-8444B2775825}.Release|x86.Build.0 = Release|x86
+		{6E40361D-9E36-4071-9FDD-8192D2FE3C46}.Debug|x86.ActiveCfg = Debug|x86
+		{6E40361D-9E36-4071-9FDD-8192D2FE3C46}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

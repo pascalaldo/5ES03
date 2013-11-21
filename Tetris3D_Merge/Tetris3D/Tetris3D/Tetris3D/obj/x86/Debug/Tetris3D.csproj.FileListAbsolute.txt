@@ -1,0 +1,11 @@
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Tetris3D.exe
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Tetris3D.pdb
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\ResolveAssemblyReference.cache
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\Tetris3D.exe
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\Tetris3D.pdb
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xFROGSKIN.xnb
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xnb
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xFROGSKIN_0.xnb
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\cube.xnb
+d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\blackSquare.xnb
