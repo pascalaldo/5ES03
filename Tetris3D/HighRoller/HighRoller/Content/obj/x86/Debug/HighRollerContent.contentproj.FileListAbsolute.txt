@@ -1,1 +1,2 @@
 E:\HighRoller\HighRoller\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Try-out\HighRoller\HighRoller\Content\obj\x86\Debug\ResolveAssemblyReference.cache

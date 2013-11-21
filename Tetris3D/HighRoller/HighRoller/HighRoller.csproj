@@ -113,7 +113,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArcBallCamera.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="MovableObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

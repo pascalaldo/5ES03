@@ -7,11 +7,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\HighRoller\HighRoller\bin\x86\Debug\Content\Models\box.xnb</Output>
+      <Output>E:\Try-out\HighRoller\HighRoller\bin\x86\Debug\Content\Models\box.xnb</Output>
       <Time>2009-11-13T15:57:56+01:00</Time>
       <Dependency>
-        <Key>E:\HighRoller\HighRoller\obj\x86\Debug\Models\box_0.xml</Key>
-        <Value>2013-11-19T15:05:44.1306834+01:00</Value>
+        <Key>E:\Try-out\HighRoller\HighRoller\obj\x86\Debug\Models\box_0.xml</Key>
+        <Value>2013-11-20T22:45:12.6303112+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -20,11 +20,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\HighRoller\HighRoller\bin\x86\Debug\Content\Models\plane.xnb</Output>
+      <Output>E:\Try-out\HighRoller\HighRoller\bin\x86\Debug\Content\Models\plane.xnb</Output>
       <Time>2009-11-13T15:57:56+01:00</Time>
       <Dependency>
-        <Key>E:\HighRoller\HighRoller\obj\x86\Debug\Models\plane_0.xml</Key>
-        <Value>2013-11-19T15:05:44.3616966+01:00</Value>
+        <Key>E:\Try-out\HighRoller\HighRoller\obj\x86\Debug\Models\plane_0.xml</Key>
+        <Value>2013-11-20T22:45:12.8487116+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -33,7 +33,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\HighRoller\HighRoller\bin\x86\Debug\Content\Models\crate.xnb</Output>
+      <Output>E:\Try-out\HighRoller\HighRoller\bin\x86\Debug\Content\Models\crate.xnb</Output>
       <Time>2009-11-13T15:57:56+01:00</Time>
     </Item>
     <Item>
@@ -42,7 +42,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\HighRoller\HighRoller\bin\x86\Debug\Content\Models\tile.xnb</Output>
+      <Output>E:\Try-out\HighRoller\HighRoller\bin\x86\Debug\Content\Models\tile.xnb</Output>
       <Time>2013-11-14T13:55:10.411625+01:00</Time>
     </Item>
     <Item>
@@ -51,7 +51,7 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\HighRoller\HighRoller\bin\x86\Debug\Content\Models\Textured_Lit.xnb</Output>
+      <Output>E:\Try-out\HighRoller\HighRoller\bin\x86\Debug\Content\Models\Textured_Lit.xnb</Output>
       <Time>2013-11-14T12:16:03.012764+01:00</Time>
     </Item>
     <Item>
@@ -60,7 +60,7 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\HighRoller\HighRoller\bin\x86\Debug\Content\Models\ShaderEffect.xnb</Output>
+      <Output>E:\Try-out\HighRoller\HighRoller\bin\x86\Debug\Content\Models\ShaderEffect.xnb</Output>
       <Time>2013-11-14T14:49:53.013599+01:00</Time>
     </Item>
     <Item>
@@ -69,32 +69,32 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\HighRoller\HighRoller\bin\x86\Debug\Content\Models\admoveo.xnb</Output>
+      <Output>E:\Try-out\HighRoller\HighRoller\bin\x86\Debug\Content\Models\admoveo.xnb</Output>
       <Time>2010-11-14T16:41:08+01:00</Time>
       <Dependency>
-        <Key>E:\HighRoller\HighRoller\obj\x86\Debug\Models\admoveo_0.xml</Key>
-        <Value>2013-11-19T15:05:44.7617195+01:00</Value>
+        <Key>E:\Try-out\HighRoller\HighRoller\obj\x86\Debug\Models\admoveo_0.xml</Key>
+        <Value>2013-11-20T22:45:13.1139121+01:00</Value>
       </Dependency>
     </Item>
     <Item>
       <Source>Models\box.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>E:\HighRoller\HighRoller\obj\x86\Debug\Models\box_0.xml</Output>
+      <Output>E:\Try-out\HighRoller\HighRoller\obj\x86\Debug\Models\box_0.xml</Output>
       <Time>2009-11-13T15:57:56+01:00</Time>
     </Item>
     <Item>
       <Source>Models\plane.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>E:\HighRoller\HighRoller\obj\x86\Debug\Models\plane_0.xml</Output>
+      <Output>E:\Try-out\HighRoller\HighRoller\obj\x86\Debug\Models\plane_0.xml</Output>
       <Time>2009-11-13T15:57:56+01:00</Time>
     </Item>
     <Item>
       <Source>Models\admoveo.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>E:\HighRoller\HighRoller\obj\x86\Debug\Models\admoveo_0.xml</Output>
+      <Output>E:\Try-out\HighRoller\HighRoller\obj\x86\Debug\Models\admoveo_0.xml</Output>
       <Time>2010-11-14T16:41:08+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -104,10 +104,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>E:\HighRoller\HighRoller\Content\</RootDirectory>
-      <LoggerRootDirectory>E:\HighRoller\HighRoller\</LoggerRootDirectory>
-      <IntermediateDirectory>E:\HighRoller\HighRoller\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>E:\HighRoller\HighRoller\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>E:\Try-out\HighRoller\HighRoller\Content\</RootDirectory>
+      <LoggerRootDirectory>E:\Try-out\HighRoller\HighRoller\</LoggerRootDirectory>
+      <IntermediateDirectory>E:\Try-out\HighRoller\HighRoller\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>E:\Try-out\HighRoller\HighRoller\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

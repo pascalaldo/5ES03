@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xFROGSKIN.xnb</Output>
-      <Time>2013-11-21T10:41:18.2213884+01:00</Time>
+      <Output>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xFROGSKIN.xnb</Output>
+      <Time>2013-11-21T20:45:18.3801038+01:00</Time>
     </Item>
     <Item>
       <Source>models\FrogModel.x</Source>
@@ -16,20 +16,46 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xnb</Output>
-      <Time>2013-11-21T10:59:55.3162825+01:00</Time>
+      <Output>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xnb</Output>
+      <Time>2013-11-21T20:45:18.3751036+01:00</Time>
       <Dependency>
-        <Key>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\FrogModel_0.xml</Key>
-        <Value>2013-11-21T11:00:03.4677488+01:00</Value>
+        <Key>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\FrogModel_0.xml</Key>
+        <Value>2013-11-21T20:47:14.9924491+01:00</Value>
       </Dependency>
-      <Request>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xFROGSKIN_0.xnb</Request>
+      <Request>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xFROGSKIN_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>models\cube.x</Source>
+      <Name>models\cube</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\cube.xnb</Output>
+      <Time>2013-11-21T20:45:18.382104+01:00</Time>
+      <Dependency>
+        <Key>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\cube_0.xml</Key>
+        <Value>2013-11-21T20:47:15.2804656+01:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>models\blackSquare.x</Source>
+      <Name>models\blackSquare</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\blackSquare.xnb</Output>
+      <Time>2013-11-21T20:45:18.3801038+01:00</Time>
+      <Dependency>
+        <Key>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\blackSquare_0.xml</Key>
+        <Value>2013-11-21T20:47:15.2914662+01:00</Value>
+      </Dependency>
     </Item>
     <Item>
       <Source>models\FrogModel.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\FrogModel_0.xml</Output>
-      <Time>2013-11-21T10:59:55.3162825+01:00</Time>
+      <Output>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\FrogModel_0.xml</Output>
+      <Time>2013-11-21T20:45:18.3751036+01:00</Time>
     </Item>
     <Item>
       <Source>models\FrogModel.xFROGSKIN.JPG</Source>
@@ -44,48 +70,22 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xFROGSKIN_0.xnb</Output>
-      <Time>2013-11-21T10:41:18.2213884+01:00</Time>
-    </Item>
-    <Item>
-      <Source>models\cube.x</Source>
-      <Name>models\cube</Name>
-      <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\cube.xnb</Output>
-      <Time>2013-11-21T12:41:54.5247838+01:00</Time>
-      <Dependency>
-        <Key>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\cube_0.xml</Key>
-        <Value>2013-11-21T12:42:24.3974656+01:00</Value>
-      </Dependency>
+      <Output>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\FrogModel.xFROGSKIN_0.xnb</Output>
+      <Time>2013-11-21T20:45:18.3801038+01:00</Time>
     </Item>
     <Item>
       <Source>models\cube.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\cube_0.xml</Output>
-      <Time>2013-11-21T12:41:54.5247838+01:00</Time>
-    </Item>
-    <Item>
-      <Source>models\blackSquare.x</Source>
-      <Name>models\blackSquare</Name>
-      <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\models\blackSquare.xnb</Output>
-      <Time>2013-11-21T14:18:24.6802598+01:00</Time>
-      <Dependency>
-        <Key>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\blackSquare_0.xml</Key>
-        <Value>2013-11-21T14:35:30.3499248+01:00</Value>
-      </Dependency>
+      <Output>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\cube_0.xml</Output>
+      <Time>2013-11-21T20:45:18.382104+01:00</Time>
     </Item>
     <Item>
       <Source>models\blackSquare.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\blackSquare_0.xml</Output>
-      <Time>2013-11-21T14:18:24.6802598+01:00</Time>
+      <Output>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\models\blackSquare_0.xml</Output>
+      <Time>2013-11-21T20:45:18.3801038+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -94,10 +94,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3DContent\</RootDirectory>
-      <LoggerRootDirectory>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\</LoggerRootDirectory>
-      <IntermediateDirectory>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3DContent\</RootDirectory>
+      <LoggerRootDirectory>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\</LoggerRootDirectory>
+      <IntermediateDirectory>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3D\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -126,7 +126,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-11-18T13:11:02.674322+01:00</Value>
+        <Value>2013-11-17T19:27:00.4164346+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -2,7 +2,7 @@
 <XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics" xmlns:Framework="Microsoft.Xna.Framework">
   <Asset Type="Graphics:NodeContent">
     <Identity>
-      <SourceFilename>E:\HighRoller\HighRoller\Content\Models\admoveo.x</SourceFilename>
+      <SourceFilename>E:\Try-out\HighRoller\HighRoller\Content\Models\admoveo.x</SourceFilename>
       <SourceTool>XImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -41,7 +41,7 @@
   <Resources>
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>E:\HighRoller\HighRoller\Content\Models\admoveo.x</SourceFilename>
+        <SourceFilename>E:\Try-out\HighRoller\HighRoller\Content\Models\admoveo.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -54,7 +54,7 @@
     </Resource>
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>E:\HighRoller\HighRoller\Content\Models\admoveo.x</SourceFilename>
+        <SourceFilename>E:\Try-out\HighRoller\HighRoller\Content\Models\admoveo.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>

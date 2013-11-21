@@ -5,10 +5,8 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Storage;
 
-
-namespace HighRoller
+namespace Tetris3D
 {
     // This class represents the moving camera object in the scene
     public class Camera
@@ -65,30 +63,30 @@ namespace HighRoller
             float radiusXY = (float)Math.Sqrt(Math.Pow(vecPosition.X - vecTarget.X, 2) + Math.Pow(vecPosition.Y - vecTarget.Y, 2)); // (float)Math.Sqrt(Math.Pow(vecPosition.X-vecTarget.X, 2) + Math.Pow(vecPosition.Y-vecTarget.Y , 2));
 
             // determine moveVector for camera according to keys pressed
-            if (CurrentKeyboardState.IsKeyDown(Keys.D))
-            {
-                rotation += (float)(MathHelper.ToRadians(100.0f)) * elapsedTime;
-                rotation %= MathHelper.TwoPi;
-                vecPosition.X = radiusXY * (float)Math.Cos(rotation) + vecTarget.X;
-                vecPosition.Y = radiusXY * (float)Math.Sin(rotation) + vecTarget.Y;
+            //if (CurrentKeyboardState.IsKeyDown(Keys.D))
+            //{
+            //    rotation += (float)(MathHelper.ToRadians(100.0f)) * elapsedTime;
+            //    rotation %= MathHelper.TwoPi;
+            //    vecPosition.X = radiusXY * (float)Math.Cos(rotation) + vecTarget.X;
+            //    vecPosition.Y = radiusXY * (float)Math.Sin(rotation) + vecTarget.Y;
                 
-            }
-            if (CurrentKeyboardState.IsKeyDown(Keys.A))
-            {
-                rotation -= (float)(MathHelper.ToRadians(100.0f)) * elapsedTime;
-                rotation %= MathHelper.TwoPi;
-                vecPosition.X = radiusXY * (float)Math.Cos(rotation) + vecTarget.X;
-                vecPosition.Y = radiusXY * (float)Math.Sin(rotation) + vecTarget.Y;
+            //}
+            //if (CurrentKeyboardState.IsKeyDown(Keys.A))
+            //{
+            //    rotation -= (float)(MathHelper.ToRadians(100.0f)) * elapsedTime;
+            //    rotation %= MathHelper.TwoPi;
+            //    vecPosition.X = radiusXY * (float)Math.Cos(rotation) + vecTarget.X;
+            //    vecPosition.Y = radiusXY * (float)Math.Sin(rotation) + vecTarget.Y;
  
-            }
-            if (CurrentKeyboardState.IsKeyDown(Keys.W))
-            {
-                vecPosition.Z = MathHelper.Clamp(vecPosition.Z + (moveSpeed * elapsedTime), minZ, maxZ);
-            }
-            if (CurrentKeyboardState.IsKeyDown(Keys.S))
-            {
-                vecPosition.Z = MathHelper.Clamp(vecPosition.Z - (moveSpeed * elapsedTime), minZ, maxZ);
-            }
+            //}
+            //if (CurrentKeyboardState.IsKeyDown(Keys.W))
+            //{
+            //    vecPosition.Z = MathHelper.Clamp(vecPosition.Z + (moveSpeed * elapsedTime), minZ, maxZ);
+            //}
+            //if (CurrentKeyboardState.IsKeyDown(Keys.S))
+            //{
+            //    vecPosition.Z = MathHelper.Clamp(vecPosition.Z - (moveSpeed * elapsedTime), minZ, maxZ);
+            //}
 
             // determine camera rotation due to mouse button and movement
             if ((currentMouseState.LeftButton == ButtonState.Pressed) && (previousMouseState.LeftButton == ButtonState.Released))

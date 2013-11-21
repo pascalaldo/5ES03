@@ -23,6 +23,9 @@ namespace Tetris3D
         public Model projectionModel;
         public Grid grid;
 
+        //Our rotating camera
+        Camera camera;
+
         KeyboardState KBState_Old;
 
         // Positie van de camera in 3D coördinaten. Voor 3D coördinaten gebruiken we objecten van klasse 'Vector3'
@@ -48,7 +51,17 @@ namespace Tetris3D
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+
+            camera = new Camera(
+                //new Vector3(400.0f, 0.0f, 240.0f),
+                //new Vector3(120.0f, 120.0f, 0.0f)
+                cameraPosition,
+                aimPosition
+            );
+
+            // Allow the mouse pointer to be visible in the game window.
+            IsMouseVisible = true;
+            
             grid.graphics = this.graphics;
             grid.GraphicsDevice = this.GraphicsDevice;
 

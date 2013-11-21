@@ -68,10 +68,7 @@ namespace HighRoller
         private Effect effect;
 
         //Our Free-Fly Camera
-        ArcBallCamera ArcCamera;
-
-        //Point of rotation of the arcballcamera
-        Vector3 pointRotation;
+        Camera camera;
 
         //Location in 3D world space where a mouse click has occurred
         Vector3 Click;
@@ -155,19 +152,10 @@ namespace HighRoller
             //the second vector contains the angle the camera looks at in the vertical plane and in the horizontal plane
             //look 20 degrees down and 135 degrees from the positive y axis.
             //Note that the angles in degrees need to be converted to angels in radians (by dividing by 180 and multiplying with Pi).
-            //camera = new Camera(
-            //    new Vector3((float)PlayfieldWidth * TileWidth, (float)PlayfieldWidth * TileWidth, 100.0f), 
-            //    new Vector2(-20.0f /180.0f * (float)Math.PI, 135.0f /180.0f * (float)Math.PI));
-
-            pointRotation = new Vector3(120.0f, 120.0f, 500.0f);
-
-            ArcCamera = new ArcBallCamera(
-                1024.0f/768.0f,
-                MathHelper.PiOver4,
-                pointRotation,
-                new Vector3(0.0f, 0.0f, 0.0f),
-                0.12f,
-                8096.0f
+            camera = new Camera(
+                //new Vector3((float)PlayfieldWidth * TileWidth, (float)PlayfieldWidth * TileWidth, 100.0f),
+                new Vector3(400.0f, 0.0f, 240.0f),
+                new Vector3(120.0f, 120.0f, 0.0f)
             );
 
             // Allow the mouse pointer to be visible in the game window.
@@ -261,44 +249,6 @@ namespace HighRoller
             MSState_Previous = MSState_Current;
             MSState_Current = Mouse.GetState();
 
-            //Animate the camera, i.e. move it, depending on mouse and keyboard activity
-            //The details are defined in the Update function in the Camera class, see the Camera.cs file.
-            //camera.Update(elapsedTime, KBState_Current, MSState_Current, MSState_Previous, graphics.GraphicsDevice);
-
-            float diffAngleYaw = (float)MathHelper.ToRadians(0.25f) % (MathHelper.TwoPi);
-            float diffAnglePitch = (float)MathHelper.ToRadians(0.1f) % (MathHelper.TwoPi);
-            float currRadius = (float)Math.Sqrt(Math.Pow(ArcCamera.LookAt.X - pointRotation.X, 2) + Math.Pow(ArcCamera.LookAt.Y - pointRotation.Y, 2) + Math.Pow(ArcCamera.LookAt.Z, 2));
-
-            if (KBState_Current.IsKeyDown(Keys.D))
-            {
-                ArcCamera.MoveCameraRight(currRadius * diffAngleYaw);
-                ArcCamera.Yaw += diffAngleYaw;
-                //ArcCamera.MoveCameraRight(100.0f * ArcCamera.Yaw);
-            }
-            if (KBState_Current.IsKeyDown(Keys.A))
-            {
-                ArcCamera.MoveCameraRight(-currRadius * diffAngleYaw);
-                ArcCamera.Yaw -= diffAngleYaw;
-                //ArcCamera.MoveCameraRight(-100.0f * ArcCamera.Yaw);
-            }
-            if (KBState_Current.IsKeyDown(Keys.E))
-            {
-                ArcCamera.MoveCameraForward(1.0f); //-20.0f / 180.0f * (float)Math.PI;
-            }
-            if (KBState_Current.IsKeyDown(Keys.Q))
-            {
-                ArcCamera.MoveCameraForward(-1.0f); //-20.0f / 180.0f * (float)Math.PI;
-            }
-            if (KBState_Current.IsKeyDown(Keys.W))
-            {
-                ArcCamera.Pitch += diffAnglePitch; //-20.0f / 180.0f * (float)Math.PI;
-            }
-            if (KBState_Current.IsKeyDown(Keys.S))
-            {
-                ArcCamera.Pitch -= diffAnglePitch; //-20.0f / 180.0f * (float)Math.PI;
-            }
-
-
             // check if the user pressed the 'b' key
             if (IsKeyPush(Keys.B))
             {
@@ -315,7 +265,7 @@ namespace HighRoller
 
             //Animate the camera, i.e. move it, depending on mouse and keyboard activity
             //The details are defined in the Update function in the Camera class, see the Camera.cs file.
-            //camera.Update(elapsedTime, KBState_Current, MSState_Current, MSState_Previous, graphics.GraphicsDevice);
+            camera.Update(elapsedTime, KBState_Current, MSState_Current, MSState_Previous, graphics.GraphicsDevice);
 
             //Now we move the character if the right mouse button is being pressed
             if (MSState_Current.RightButton == ButtonState.Pressed && MSState_Previous.RightButton == ButtonState.Released)
@@ -326,7 +276,7 @@ namespace HighRoller
                     //Get the coordinates in 3d world of the mouse click
                     //Thus user clicked the mouse on the 2D screen. We need to translate the 2D coordinates to 3D world coordinates.
                     //The details are in the function GetCollision below.
-                    //Click = GetCollision();
+                    Click = GetCollision();
 
                     // Check if the selected point is inside the playing field, then move
                     if (Click.X > 0.0f && Click.X < (float)PlayfieldWidth*TileWidth && Click.Y > 0 && Click.Y < (float)PlayfieldWidth*TileWidth)
@@ -348,7 +298,7 @@ namespace HighRoller
             if (MSState_Current.LeftButton == ButtonState.Pressed)
             {
                 //Get the coordinates in 3d world of the mouse click
-                //Click = GetCollision();
+                Click = GetCollision();
 
                 //Determine the tile that was clicked on
                 Point point = new Point((int)(Click.X / TileWidth), (int)(Click.Y / TileWidth));
@@ -381,48 +331,48 @@ namespace HighRoller
         // find out what point on the ground plane the mouse position points to
         // returns the intersection point of a 'ray' pointing into the screen at the mouse coordinates with the
         // ground plane.
-        //public Vector3 GetCollision()
-        //{
-        //    // create points with x and y coordinates of the mouse pointer and z coordinates of 0 and 4096.
-        //    // a 'long enough' line pointing into the screen at the mouse
-        //    Vector3 startC = new Vector3(MSState_Current.X, MSState_Current.Y, 0.0f);
-        //    Vector3 endC = new Vector3(MSState_Current.X, MSState_Current.Y, 4096.0f);
+        public Vector3 GetCollision()
+        {
+            // create points with x and y coordinates of the mouse pointer and z coordinates of 0 and 4096.
+            // a 'long enough' line pointing into the screen at the mouse
+            Vector3 startC = new Vector3(MSState_Current.X, MSState_Current.Y, 0.0f);
+            Vector3 endC = new Vector3(MSState_Current.X, MSState_Current.Y, 4096.0f);
 
-        //    //Convert screen space point 'startC' into the corresponding point in world space. 
-        //    Vector3 nearPoint = graphics.GraphicsDevice.Viewport.Unproject(startC,
-        //                camera.mProjection, camera.mView, Matrix.Identity);
+            //Convert screen space point 'startC' into the corresponding point in world space. 
+            Vector3 nearPoint = graphics.GraphicsDevice.Viewport.Unproject(startC,
+                        camera.mProjection, camera.mView, Matrix.Identity);
 
-        //    //Convert screen space point 'endC' into the corresponding point in world space. 
-        //    Vector3 farPoint = graphics.GraphicsDevice.Viewport.Unproject(endC,
-        //                camera.mProjection, camera.mView, Matrix.Identity);
+            //Convert screen space point 'endC' into the corresponding point in world space. 
+            Vector3 farPoint = graphics.GraphicsDevice.Viewport.Unproject(endC,
+                        camera.mProjection, camera.mView, Matrix.Identity);
 
-        //    // find the direction of the vector from nearPoint to farPoint
-        //    Vector3 rayDirection = Vector3.Normalize(farPoint - nearPoint);
+            // find the direction of the vector from nearPoint to farPoint
+            Vector3 rayDirection = Vector3.Normalize(farPoint - nearPoint);
 
-        //    // compute the cosine of the angle between the positive z axis and the ray direction in the world coordinate system
-        //    float cosAlpha = Vector3.Dot(Vector3.UnitZ, rayDirection);
+            // compute the cosine of the angle between the positive z axis and the ray direction in the world coordinate system
+            float cosAlpha = Vector3.Dot(Vector3.UnitZ, rayDirection);
 
-        //    // set deltaD to the z-coordinate of nearPoint
-        //    float deltaD = Vector3.Dot(Vector3.UnitZ, nearPoint);
+            // set deltaD to the z-coordinate of nearPoint
+            float deltaD = Vector3.Dot(Vector3.UnitZ, nearPoint);
 
-        //    // distance becomes the length of a vector starting from nearPoint, pointing in the direction of farPoint
-        //    // and ending at the ground plane (z=0).
-        //    float distance = deltaD / cosAlpha;
+            // distance becomes the length of a vector starting from nearPoint, pointing in the direction of farPoint
+            // and ending at the ground plane (z=0).
+            float distance = deltaD / cosAlpha;
 
-        //    // calculates the intersection of the ray with the ground plane by subtracting the vector above from the nearPoint.
-        //    return nearPoint - (rayDirection * distance);
-        //}
+            // calculates the intersection of the ray with the ground plane by subtracting the vector above from the nearPoint.
+            return nearPoint - (rayDirection * distance);
+        }
 
-        //// The Draw function is called when the game should draw itself.
-        ////gameTime provides a snapshot of current time.
+        // The Draw function is called when the game should draw itself.
+        //gameTime provides a snapshot of current time.
         protected override void Draw(GameTime gameTime)
         {
             //Set a background color
             graphics.GraphicsDevice.Clear(Color.DarkBlue);
 
             ////Set the rendering effect parameters for the view and projection matrices .
-            effect.Parameters["View"].SetValue(ArcCamera.ViewMatrix);
-            effect.Parameters["Projection"].SetValue(ArcCamera.ProjectionMatrix);
+            effect.Parameters["View"].SetValue(camera.mView);
+            effect.Parameters["Projection"].SetValue(camera.mProjection);
 
             //Draw ground plane with texture
             //Set the world matrix according to the plane object

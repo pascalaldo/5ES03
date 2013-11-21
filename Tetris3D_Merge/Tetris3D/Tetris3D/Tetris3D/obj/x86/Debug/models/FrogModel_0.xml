@@ -2,7 +2,7 @@
 <XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics" xmlns:Framework="Microsoft.Xna.Framework">
   <Asset Type="Graphics:NodeContent">
     <Identity>
-      <SourceFilename>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3DContent\models\FrogModel.x</SourceFilename>
+      <SourceFilename>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3DContent\models\FrogModel.x</SourceFilename>
       <SourceTool>XImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -52,7 +52,7 @@
   <Resources>
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3DContent\models\FrogModel.x</SourceFilename>
+        <SourceFilename>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3DContent\models\FrogModel.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -65,7 +65,7 @@
     </Resource>
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3DContent\models\FrogModel.x</SourceFilename>
+        <SourceFilename>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3DContent\models\FrogModel.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -78,7 +78,7 @@
     </Resource>
     <Resource ID="#Resource3" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3DContent\models\FrogModel.x</SourceFilename>
+        <SourceFilename>E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3DContent\models\FrogModel.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>

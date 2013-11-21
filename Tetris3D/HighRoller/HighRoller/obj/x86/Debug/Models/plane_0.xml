@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>Plane01</Name>
     <Identity>
-      <SourceFilename>E:\HighRoller\HighRoller\Content\Models\plane.FBX</SourceFilename>
+      <SourceFilename>E:\Try-out\HighRoller\HighRoller\Content\Models\plane.FBX</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>2.54 0 0 0 0 7.19523466E-16 -2.54 0 0 2.54 7.19523466E-16 0 0 0 0 1</Transform>

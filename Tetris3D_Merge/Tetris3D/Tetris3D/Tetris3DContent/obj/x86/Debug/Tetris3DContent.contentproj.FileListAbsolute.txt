@@ -1,1 +1,2 @@
 d:\documents\visual studio 2010\Projects\Tetris3D\Tetris3D\Tetris3DContent\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Michael Struik\Documents\GitHub\5ES03\Tetris3D_Merge\Tetris3D\Tetris3D\Tetris3DContent\obj\x86\Debug\ResolveAssemblyReference.cache
