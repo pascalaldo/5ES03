@@ -1,4 +1,5 @@
-#define BOT_SERIAL 1
+#define NOT_BOT_SERIAL 1
+#define ASSIGNMENT1 1
 /* 
  * 
  */
@@ -87,7 +88,44 @@ float motorDist_r; // Fraction of speed for the right motor with dist [-1,1]
 
 // Whether the bot went off the track at the left side,
 // false when the bot went off the track at the right side
-boolean out_at_left; 
+enum Direction{
+  LEFT,
+  RIGHT,
+  STRAIGHT
+};
+#ifdef ASSIGNMENT2
+enum State{
+  STRAIGHTAHEAD,
+  SMALLCORRECT,
+  LARGECORRECT,
+  CONFIRMGAP,
+  RETURNTOGAPSTART,
+  RETURNTOBENDSTART,
+  WAITFORGAP,
+  STARTCROSSGAP,
+  CROSSGAP
+};
+#else
+enum State{
+  WAITTOSTART,
+  STRAIGHTAHEAD,
+  CORRECTLEFT,
+  CORRECTRIGHT,
+  STOPFOROTHER
+};
+#endif
+
+enum Position{
+  OFFTRACK,
+  ONTRACK,
+  HALFTRACK
+};
+
+Direction out_at;
+boolean cross_next_gap = false;
+State curstate;
+int largecorrectsteps = 300;
+
 int off_track;
 // Count how long the bot has been off track;
 int off_track_count = 0;
@@ -139,32 +177,44 @@ void setup(){
   motorDist_r = 1.0f; //value for the right motor for the distance
 
   
-  out_at_left = false;
+  out_at = STRAIGHT;
   off_track = 0;
+  curstate = STRAIGHTAHEAD;
 }
 
 void loop(){
-  if(move){
-    if(off_track_count > 700){
+  /*if(move){*/
+    /*if(off_track_count > 700){
       analogWrite(ID_LED_BLUE, 0);
       analogWrite(ID_LED_GREEN, 0);
       analogWrite(ID_LED_RED, 255);
       adjustMotor(0,0);
       Serial.print("TOTAL DISTANCE: "); Serial.println(getTotalDistance());
       for(;;);
-    }else{
-      detectLine();
-#ifdef BOT_SERIAL
+    }else{*/
+      //detectLine();
       keepDistance();
+      #ifdef ASSIGNMENT2
+      if (motorDist_l < 0.1){
+        startCrossingGap();
+      }
+      #else
+      if (curstate == WAITTOSTART && motorDist_l < 0.1){
+        curstate = STRAIGHTAHEAD;
+      }
+      #endif
+      controlState();
+#ifdef BOT_SERIAL
+      //keepDistance();
 #endif
       adjustMotor(motorLine_l*motorDist_l,motorLine_r*motorDist_r);
       //Serial.print("Motor line speed: ("); Serial.print(motorLine_l); Serial.print(", "); Serial.print(motorLine_r); Serial.println(")");
       //Serial.print("Motor dist speed: ("); Serial.print(motorDist_l); Serial.print(", "); Serial.print(motorDist_r); Serial.println(")");
-    }
-  }
+    /*}*/
+  /*}
   else
   {
       hearClap();
-  }
+  }*/
 }
 
