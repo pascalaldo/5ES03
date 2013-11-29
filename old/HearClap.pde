@@ -1,4 +1,4 @@
-
+#ifdef NOTDEFINED
 void hearClap(){
   /* Select ADC_SOUND LEFT */
   digitalWrite(ID_FRONTREAR, LOW);
@@ -11,5 +11,4 @@ void hearClap(){
     lastSpeedChange = millis();
   }
 }
-
-
+#endif

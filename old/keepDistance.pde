@@ -1,11 +1,11 @@
-
+#ifdef NOTDEFINED
 void keepDistance(){
   /* Select ADC_DISTANCE FRONT */
   digitalWrite(ID_FRONTREAR, HIGH);
   digitalWrite(ID_LEFTRIGHT, LOW);
   delay(1);
   dist_front = analogRead(ID_ADC_DISTANCE);
-  Serial.println(dist_front);
+  //Serial.println(dist_front);
   if(dist_front <= DIST_THRESHOLD_CRITICAL){
     motorDist_l = 0;
     motorDist_r = 0;
@@ -28,4 +28,4 @@ void keepDistance(){
   }
   
 }
-
+#endif

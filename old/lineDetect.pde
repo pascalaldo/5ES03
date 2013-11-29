@@ -1,3 +1,4 @@
+#ifdef NOTDEFINED
 void detectLine()
 {
         int line_left, line_right;
@@ -93,7 +94,7 @@ void detectLine()
             }else{
               // The bot is seeing the line at the left side and is therefore heading too far to the right.
               // So the bot should turn left.
-              Serial.println("GOTO LEFT");
+              //Serial.println("GOTO LEFT");
               out_at = RIGHT; // Keep track of where the line was last seen.
               // Decrease the speed of the left motor to go left.
               motorLine_l = motorLine_l-LINE_FACTOR*ratio;
@@ -115,4 +116,4 @@ void detectLine()
         motorLine_l = max(-1,motorLine_l);
         motorLine_r = max(-1,motorLine_r);
 }
-
+#endif

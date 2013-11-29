@@ -1,9 +1,4 @@
-void RGBLED(int r, int g, int b){
-  analogWrite(ID_LED_RED, r);
-  analogWrite(ID_LED_GREEN, g);
-  analogWrite(ID_LED_BLUE, b);
-}
-
+#ifdef NOTDEFINED
 #ifdef ASSIGNMENT2
 void startCrossingGap()
 {
@@ -28,7 +23,7 @@ void controlState()
         if (curstate == CONFIRMGAP){
           delay(200);
         }else if (curstate == CROSSGAP){
-          delay(500);
+          delay(300);
         }else if (curstate == RETURNTOGAPSTART){
           delay(300);
         }else if(curstate == RETURNTOBENDSTART){
@@ -80,7 +75,7 @@ void controlState()
             newstate = CONFIRMGAP;
           }
         }else if (curstate == CONFIRMGAP){
-          Serial.println("ConfirmGap");
+          //Serial.println("ConfirmGap");
           if (curpos != OFFTRACK){
             newstate = RETURNTOGAPSTART;
           }else{
@@ -124,6 +119,7 @@ void controlState()
             out_at = LEFT; // Keep track of where the line was last seen.
             // Decrease the speed of the right motor to go right.
             motorLine_r = 1.0f+LINE_FACTOR*ratio;
+            motorLine_r = max(motorLine_r, 0);
           }else{
             // The bot is seeing the line at the left side and is therefore heading too far to the right.
             // So the bot should turn left.
@@ -131,6 +127,7 @@ void controlState()
             out_at = RIGHT; // Keep track of where the line was last seen.
             // Decrease the speed of the left motor to go left.
             motorLine_l = 1.0f-LINE_FACTOR*ratio;
+            motorLine_l = max(motorLine_l, 0);
           }
           motorLine_r = motorLine_r*TURN_SPEED;
           motorLine_l = motorLine_l*TURN_SPEED;
@@ -142,7 +139,7 @@ void controlState()
         }else if (newstate == RETURNTOGAPSTART || newstate == RETURNTOBENDSTART){
           motorLine_r = -1.0f;
           motorLine_l = -1.0f;
-          Serial.println("Go Back!");
+          //Serial.println("Go Back!");
           RGBLED(0, 255, 100);
         }else if (newstate == WAITFORGAP){
           motorLine_r = 0.0f;
@@ -268,4 +265,4 @@ void controlState()
         motorLine_r = max(-1,motorLine_r);
 }
 #endif
-
+#endif
