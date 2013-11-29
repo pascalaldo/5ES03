@@ -13,10 +13,12 @@ Control2::Control2()
  void Control2::doLoop()
  {
    keepDistance();
+   // TODO NETWORKING: Connect to signal for crossing the gap.
    if (motorDist_l < 0.1){
      startCrossingGap();
    }
    updateState();
+   // TODO uncomment this, is commented because distance sensors are now used as replacement for networking
    adjustMotor(motorLine_l/**motorDist_l*/,motorLine_r/**motorDist_r*/);
  }
    
@@ -79,6 +81,7 @@ Control2::Control2()
     }
   }else if (currentState == ControlEnums::RETURNTOGAPSTART){
     newstate = ControlEnums::WAITFORGAP;
+    // TODO Networking: Send signal that robot is waiting
   }else if (currentState == ControlEnums::RETURNTOBENDSTART){
     newstate = ControlEnums::LARGECORRECT;
     largecorrectsteps = 300;
@@ -101,6 +104,7 @@ Control2::Control2()
   if (newstate == ControlEnums::STRAIGHTAHEAD){
     motorLine_l = 1.0f;
     motorLine_r = 1.0f;
+    out_at = ControlEnums::STRAIGHT;
     setRGBLED(0, 255, 0);
   }else if (newstate == ControlEnums::SMALLCORRECT){
     if (ratio < 0){

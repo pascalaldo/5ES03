@@ -42,6 +42,7 @@ void Control1::doLoop()
    }/*else if (distanceLeft <= DIST_THRESHOLD){
     stopForOther(ControlEnums::LEFT);
    }*/
+   // TODO NETWORKING: Connect signal for the transfer of the light
    if (distanceLeft <= DIST_THRESHOLD){
 	transferLight();
    }
@@ -54,6 +55,7 @@ void Control1::stopForOther(ControlEnums::Direction pos)
    if (currentState != ControlEnums::WAITTOSTART){
      currentState = ControlEnums::STOPFOROTHER;
      positionOther = pos;
+     // TODO NETWORKING: Send out signal that robot has seen the other (at pos)
    }
  }
  
