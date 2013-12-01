@@ -4,11 +4,9 @@
 #define BOT_SERIAL 1
 #define NO_DEBUG
 
-/* 
- * 
- */
 #include <math.h> //include math functions
 
+// PINS
 #define	ID_ADC_SOUND     0
 #define ID_ADC_LINE      2
 #define ID_SPEED_R       5
@@ -73,15 +71,6 @@
 #else
 #define DIST_THRESHOLD   50
 #define DIST_THRESHOLD_CRITICAL  10
-#endif
-
-// Clap thresholds
-#ifdef BOT_SERIAL
-#define CLAP_UPPER      400
-#define CLAP_LOWER      100
-#else
-#define CLAP_UPPER      400
-#define CLAP_LOWER      150
 #endif
 
 #define MOTOR_CORRECTION_DELAY 150

@@ -1,0 +1,26 @@
+var class_control =
+[
+    [ "Control", "class_control.html#aa730aeda4517f40bc48ba1e46ebded77", null ],
+    [ "adjustMotor", "class_control.html#a00e0c96607acd7c158e303a244566eab", null ],
+    [ "doLoop", "class_control.html#a2d93abe9c5753537e8b57f9b020322e4", null ],
+    [ "keepDistance", "class_control.html#a83c241497fb3c2e425647e6aae73df7e", null ],
+    [ "lookToSides", "class_control.html#aafbb46279d6415accc4c647c0ffba214", null ],
+    [ "readSensors", "class_control.html#a9ecddd34bca2520e9ebec262a0244cfa", null ],
+    [ "setMotorDist", "class_control.html#a9c77ffccdc91caea36f96ef59433df34", null ],
+    [ "setMotorLine", "class_control.html#ac6c928cadf579d86261af4951178ce2f", null ],
+    [ "setMotorLine", "class_control.html#ad764d5ba3aa01727f8939514183295e5", null ],
+    [ "setRGBLED", "class_control.html#a8e1fdaaa49144813b5e479f316d66e5e", null ],
+    [ "updateState", "class_control.html#a2520a25eac3e5c117363141f8b760ffc", null ],
+    [ "currentPosition", "class_control.html#a4dfd0bc72f6351feeba55e64c3b55287", null ],
+    [ "currentSpeed_l", "class_control.html#a0dea9bff596cc5372c89ffd134f7ca57", null ],
+    [ "currentSpeed_r", "class_control.html#a70bd9d1fd55a9e4e77f3f113544f1e39", null ],
+    [ "currentState", "class_control.html#a1273bf322f78dba4429ea7c67598698f", null ],
+    [ "distanceFront", "class_control.html#a06c1ab54753054a059a9d6be3f73c339", null ],
+    [ "distanceLeft", "class_control.html#a34f63c87e869a214c928effd6f29d668", null ],
+    [ "distanceRight", "class_control.html#a7e6a5bfa943fc8c60883d5605e15e7a5", null ],
+    [ "motorDist_l", "class_control.html#aa179159722c9296c959d3739dab6a18b", null ],
+    [ "motorDist_r", "class_control.html#a23467430604288e25b847b52a25141fd", null ],
+    [ "motorLine_l", "class_control.html#a6889df9b5a51b953f294a623329da1f6", null ],
+    [ "motorLine_r", "class_control.html#aa1d86d8e0675d49ecc6e8ff1622284fc", null ],
+    [ "ratio", "class_control.html#a3c98a3e6081c7f49d3cac0662c837910", null ]
+];

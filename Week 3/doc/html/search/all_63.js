@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['confirmgap',['CONFIRMGAP',['../struct_control_enums.html#ada5ea111132eea556061c50638e2e0e0ac9708f5408f24dea0547a166e8abb034',1,'ControlEnums']]],
+  ['control',['Control',['../class_control.html',1,'Control'],['../class_control.html#aa730aeda4517f40bc48ba1e46ebded77',1,'Control::Control()']]],
+  ['control_2ecpp',['Control.cpp',['../_control_8cpp.html',1,'']]],
+  ['control_2eh',['Control.h',['../_control_8h.html',1,'']]],
+  ['control1',['Control1',['../class_control1.html',1,'Control1'],['../class_control1.html#a457f4a1837db5ec0e9985f47f177a985',1,'Control1::Control1()']]],
+  ['control1_2ecpp',['Control1.cpp',['../_control1_8cpp.html',1,'']]],
+  ['control1_2eh',['Control1.h',['../_control1_8h.html',1,'']]],
+  ['control2',['Control2',['../class_control2.html',1,'Control2'],['../class_control2.html#a5709d9195e99d709e6e8cdc844fcb7cd',1,'Control2::Control2()']]],
+  ['control2_2ecpp',['Control2.cpp',['../_control2_8cpp.html',1,'']]],
+  ['control2_2eh',['Control2.h',['../_control2_8h.html',1,'']]],
+  ['controlenums',['ControlEnums',['../struct_control_enums.html',1,'']]],
+  ['correction_5fleft',['CORRECTION_LEFT',['../defs_8h.html#ad7d8ed18387be92b75c5e37c3f7900cc',1,'defs.h']]],
+  ['correction_5fright',['CORRECTION_RIGHT',['../defs_8h.html#a50ac08ead96c2f8f3f2a52b6bc9576f2',1,'defs.h']]],
+  ['correctleft',['CORRECTLEFT',['../struct_control_enums.html#ada5ea111132eea556061c50638e2e0e0a73b918a918464d78e5518bc2280c9416',1,'ControlEnums']]],
+  ['correctright',['CORRECTRIGHT',['../struct_control_enums.html#ada5ea111132eea556061c50638e2e0e0afa1250a9f85e2ef5d77736b39e12a081',1,'ControlEnums']]],
+  ['cross_5fnext_5fgap',['cross_next_gap',['../class_control2.html#a8f23a27063d45e7e0c9abfd5e784b9b7',1,'Control2']]],
+  ['crossgap',['CROSSGAP',['../struct_control_enums.html#ada5ea111132eea556061c50638e2e0e0a9ae86656a6394fa88deb800415a36411',1,'ControlEnums']]],
+  ['currentposition',['currentPosition',['../class_control.html#a4dfd0bc72f6351feeba55e64c3b55287',1,'Control']]],
+  ['currentspeed_5fl',['currentSpeed_l',['../class_control.html#a0dea9bff596cc5372c89ffd134f7ca57',1,'Control']]],
+  ['currentspeed_5fr',['currentSpeed_r',['../class_control.html#a70bd9d1fd55a9e4e77f3f113544f1e39',1,'Control']]],
+  ['currentstate',['currentState',['../class_control.html#a1273bf322f78dba4429ea7c67598698f',1,'Control']]]
+];
